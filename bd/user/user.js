@@ -46,6 +46,7 @@ function updateUser(data, res) {
     (err, rows, filds) => {
       if (!err && rows.affectedRows > 0) {
         res.json({
+          ok: true,
           status: 201,
           message: "Usuario actualizado",
           affectedRows: rows
@@ -54,7 +55,7 @@ function updateUser(data, res) {
         return res.json({
           ok: false,
           mensaje: "error de servidor",
-          errors: err
+          err
         });
       }
     }
